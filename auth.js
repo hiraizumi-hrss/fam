@@ -7,7 +7,7 @@ async function sha256(text) {
 }
 
 // 事前にハッシュ化されたパスワード（Izumi4HIRA）
-const correctHash = "05199b83e3ec1d8b2b63f2fb3471e6f6f5182ecb506c6160f7209483d12c219f";
+const correctHash = "e3564c1e3cf8d1b5dbd19f6c1dfbb94f87be228f91e26030bcfd5c2d7a1582eb";
 
 async function checkPassword() {
   const input = document.getElementById("passwordInput").value;
