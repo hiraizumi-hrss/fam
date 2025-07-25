@@ -5,16 +5,55 @@
   <title>かぞくポータル - 平泉さんちのサイト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-    input { padding: 8px; margin: 5px; width: 200px; }
-    button { padding: 8px 16px; margin-top: 10px; }
-    #message { color: red; margin-top: 10px; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fff7f0, #ffe4d4);
+      color: #5a3e2b;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin-bottom: 0.2em;
+    }
+    em {
+      font-size: 1em;
+      color: #7a5c44;
+    }
+    input {
+      padding: 10px;
+      margin: 8px;
+      width: 90%;
+      max-width: 300px;
+      border: 1px solid #d8bfa3;
+      border-radius: 6px;
+      font-size: 1em;
+      background-color: #fffaf5;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #f4caa1;
+      border: none;
+      border-radius: 6px;
+      color: #3d2a1e;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #f1b984;
+    }
+    #message {
+      color: #c0392b;
+      margin-top: 15px;
+      font-weight: bold;
+    }
   </style>
   <script>
     let failCount = 0;
 
     const credentials = {
-      "hirahira": "e8b2f6e6b3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3" // 仮のSHA-256（後で正確な値に置き換え）
+      "hirahira": "e5f3b2e3e3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3e3e3f3b3" // ← 実際のSHA-256に置き換えてください
     };
 
     async function hashPassword(password) {
@@ -26,7 +65,7 @@
     }
 
     async function authenticate() {
-      const username = document.getElementById("username").value;
+      const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value;
       const message = document.getElementById("message");
       const hashed = await hashPassword(password);
