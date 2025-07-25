@@ -1,22 +1,30 @@
-// SHA-256ハッシュ化関数
-async function sha256(text) {
-  const data = new TextEncoder().encode(text);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hashBuffer))
-    .map(b => b.toString(16).padStart(2, '0')).join('');
-}
+// 初期化時にフォームへデフォルトアカウントを入力
+window.onload = function () {
+  document.getElementById("username").value = "hiraizumi"; // アカウントは自動入力
+  document.getElementById("password").value = "";          // パスワードは空白
+};
 
-// 事前にハッシュ化されたパスワード（Izumi4HIRA）
-const correctHash = "e3564c1e3cf8d1b5dbd19f6c1dfbb94f87be228f91e26030bcfd5c2d7a1582eb";
+// 認証処理
+function login() {
+  const inputUser = document.getElementById("username").value.trim();
+  const inputPass = document.getElementById("password").value.trim();
 
-async function checkPassword() {
-  const input = document.getElementById("passwordInput").value;
-  const inputHash = await sha256(input);
+  fetch("users.json")
+    .then((response) => response.json())
+    .then((users) => {
+      const validUser = users.find(
+        (user) => user.username === inputUser && user.password === inputPass
+      );
 
-  if (inputHash === correctHash) {
-    // 認証成功 → ポータルページへ遷移
-    window.location.href = "portal.html";
-  } else {
-    document.getElementById("result").textContent = "パスワードが違います";
-  }
+      if (validUser) {
+        alert("ログイン成功！");
+        // 認証後の処理をここに記述
+      } else {
+        alert("ユーザー名またはパスワードが違います");
+      }
+    })
+    .catch((error) => {
+      console.error("ユーザー情報読み込みエラー:", error);
+      alert("内部エラーが発生しました");
+    });
 }

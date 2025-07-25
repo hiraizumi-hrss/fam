@@ -51,12 +51,22 @@
   </style>
 </head>
 <body>
+  <div class="login-container">
   <h2>🔐 かぞくポータル</h2>
   <p><em>平泉さんちのサイトへようこそ</em></p>
-  <input type="password" id="passwordInput" placeholder="パスワードを入力" />
-  <button onclick="checkPassword()">ログイン</button>
-  <p id="result"></p>
+    <div class="input-group">
+      <label for="username">🧑 ユーザー名</label>
+      <input type="text" id="username" placeholder="ユーザー名を入力" autocomplete="username">
+    </div>
 
+    <div class="input-group">
+      <label for="password">🔒 パスワード</label>
+      <input type="password" id="password" placeholder="パスワードを入力" autocomplete="off">
+    </div>
+
+    <button onclick="login()">ログイン</button>
+    <p id="result"></p>
+  </div>
   <script src="auth.js"></script>
 </body>
 </html>
