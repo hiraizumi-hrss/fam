@@ -19,6 +19,7 @@ function login() {
       if (validUser) {
         alert("ログイン成功！");
         // 認証後の処理をここに記述
+        window.location.href = "/portal/index.html";
       } else {
         alert("ユーザー名またはパスワードが違います");
       }
