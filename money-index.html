@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>精算管理</title>
+  <link rel="stylesheet" href="money-style.css" />
+</head>
+<body>
+  <h1>精算情報一覧</h1>
+  <table id="seisanTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>ユーザー</th><th>項目</th><th>金額</th><th>日付</th><th>ステータス</th><th>操作</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>新規登録</h2>
+  <form id="seisanForm">
+    <input type="text" name="user" placeholder="ユーザー名" required />
+    <input type="text" name="item" placeholder="項目" required />
+    <input type="number" name="amount" placeholder="金額" required />
+    <input type="date" name="date" required />
+    <button type="submit">登録</button>
+  </form>
+
+  <script src="money-update.js"></script>
+</body>
+</html>
