@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>精算管理</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #f4caa1;
+      padding: 12px 16px;
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    button {
+      padding: 10px 16px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #0078D4;
+      color: #fff;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #005A9E;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 70px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ? ヘッダー部：操作ボタン群 -->
+  <header>
+    <button onclick="openForm('申請')">申請</button>
+    <button onclick="confirmEdit()">編集</button>
+    <button onclick="goToTop()">トップ</button>
+  </header>
+
+  <!-- ? メインフレーム部：埋め込み表示領域 -->
+  <a href="https://1drv.ms/x/c/e927ca7ec242463d/EVcDFVn2hxdDukr3NB7LTcMBJB1G68FfMH7OiMqR5Omztw?e=FOG42s" 
+     target="_blank" 
+     rel="noopener noreferrer">
+    ◆精算一覧Excelファイルを開く
+  </a>
+
+  <script>
+
+  function openForm(type) {
+    let url = '';
+    if (type === '申請') {
+      url = 'https://forms.office.com/r/Z6ZzdfE14c'; // 申請用FormsのURL
+    } else if (type === '編集') {
+      url = 'https://forms.office.com/r/nVjmnGY1Nc'; // 編集用FormsのURL
+    }
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
+
+
+    function confirmEdit() {
+      const message = `精算一覧の内容を変更しますか？\n精算済にする場合や内容を変更する場合は進んでください。\n対象となるIDを事前に記録してください。`;
+
+      if (window.confirm(message)) {
+        // 「はい」→ 編集Formsへ遷移
+        window.open('https://forms.office.com/r/nVjmnGY1Nc', '_blank', 'noopener,noreferrer');
+      }
+      // 「いいえ」→ 何もしない（stay）
+    }
+
+
+
+
+
+
+
+
+    function goToTop() {
+      location.href = 'portal.html';
+    }
+  </script>
+
+</body>
+</html>
