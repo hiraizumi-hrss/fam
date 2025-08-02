@@ -1,7 +1,7 @@
 {
   "name": "かぞくポータル",
   "short_name": "Portal",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#ffe4d4",
   "background_color": "#fff7f0",
